@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --text-color: black;
+            --background-color: #f4f4f9;
+            --white: #fff;
+            --max-width: 1200px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #4CAF50, #333);
+            color: var(--text-color);
+            cursor: pointer;
+            animation: backgroundAnimation 20s infinite linear; 
+        }
+
+        header {
+            background: linear-gradient(45deg,  #2a2222,#59765a);
+            color: var(--white);
+            padding: 5px 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        nav a {
+            margin-left: 20px;  
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f4f4f9;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hamburger div {
+            background-color: var(--white);
+            width: 25px;
+            height: 3px;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        .menu a {
+            display: block;
+            margin: 10px 0;
+            margin: 20px;
+        }
+
+        .menu a:hover{
+            color: black;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 5rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .about {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .about .content {
+            flex: 1;
+            margin-right: 2rem;
+        }
+
+        .about img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem; 
+            padding-top: 2rem; 
+            margin: 20px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-card:hover{
+            background-color: #4CAF50;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            background: linear-gradient(45deg, #19361a, #333);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact form button {
+            padding: 1rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact form button:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            nav {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .about {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about .content {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .contact form input,
+            .contact form textarea {
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+                width: 100%;
+            }
+
+            .menu a {
+                padding: 10px;
+                text-align: center;
+                background-color: var(--primary-color);
+                color: var(--white);
+                margin: 0;
+                border-top: 1px solid #ddd;
+            }
+
+            .menu a:hover {
+                background-color: #333;
+            }
+
+            .menu.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact form button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="container" id="home">
+    <div class="hero">
+        <h2>Hello, I'm ROBIN HUNT</h2>
+        <p>Welcome to my personal portfolio. I am a passionate web developer ready to take on exciting challenges and build amazing projects!</p>
+    </div>
+
+    <div class="about" id="about">
+        <div class="content">
+            <h2>About Me</h2>
+            <p> <B>I am Robin Hunt, a passionate web developer with a focus on creating responsive, user-friendly websites. With expertise in front-end development, I aim to build seamless experiences across all devices. This portfolio showcases my work and the services I offer. I am always eager to learn new technologies and improve my skills, and I'm excited about helping businesses and individuals build beautiful, functional websites. Feel free to explore my work and reach out if you're interested in collaborating!</B></p>
+        </div>
+        <img src="back.jpg" alt="Profile Picture">
+    </div>
+
+    <div class="services" id="services">
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>I create fully responsive and dynamic websites tailored to your business needs.</p>
+        </div>
+        <div class="service-card">
+            <h3>UI/UX Design</h3>
+            <p>Designing intuitive and beautiful user interfaces that provide a great experience.</p>
+        </div>
+        <div class="service-card">
+            <h3>E-commerce Solutions</h3>
+            <p>Helping businesses set up e-commerce websites that are optimized for sales.</p>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 ROBIN HUNT. All Rights Reserved.</p>
+    <p> america</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
